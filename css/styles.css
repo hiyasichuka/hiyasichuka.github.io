@@ -1,49 +1,37 @@
+* {
+  margin: 0;
+  padding: auto;
+  box-sizing: border-box;
+}
+
 body {
-  font-size: 16px;
-  font-family: Verdana, sans-serif;
+  background: black;
+  overflow: hidden;
+  height: 100vh;
 }
 
-.container {
-  width: 300px;
-  margin: auto;
+i {
+  position: absolute;
+  height: 200px;
+  background: linear-gradient(transparent, #fff);
+  border-bottom-left-radius: 5px;
+  border-bottom-right-radius: 5px;
+  animation: animate 5s linear infinite;
 }
-
-#app h1 {
-  font-size: 16px;
-  border-bottom: 1px solid #ddd;
-  padding: 16px 0;
+i:nth-child(3n + 1) {
+  background: linear-gradient(transparent, #0ff);
 }
-
-#app li {
-  line-height: 1.5;
+i:nth-child(3n + 2) {
+  background: linear-gradient(transparent, #0f0);
 }
-
-#app input[type="text"] {
-  padding: 2px;
+i:nth-child(3n + 3) {
+  background: linear-gradient(transparent, #f00);
 }
-
-.command {
-  font-size: 12px;
-  cursor: pointer;
-  color: #08c;
-}
-
-#app ul {
-  padding: 0;
-  list-style: none;
-}
-
-#app li > span.done {
-  text-decoration: line-through;
-  color: #bbb;
-}
-
-.info {
-  color: #bbb;
-  font-size: 12px;
-  font-weight: normal;
-}
-
-#app h1 > button {
-  float: right;
+@keyframes animate {
+  0%{
+    transform: translateY(-200px);
+  }
+  100%{
+    transform: translateY(calc(100vh + 200px));
+  }
 }

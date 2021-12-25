@@ -1,54 +1,21 @@
-(function () {
-  'use strict';
+function rain() {
+  let amount = 20;
+  let body = document.querySelector("body");
+  let i = 0;
+  while (i < amount) {
+    let drop = document.createElement("i");
 
-  var vm = new Vue({
-    el: '#app',
-    data: {
-      newItem: '',
-      todos: []
-    },
-    watch: {
-      todos: {
-        handler: function () {
-          localStorage.setItem('todos', JSON.stringify(this.todos));
-        },
-        deep: true
-      }
-    },
-    mounted: function () {
-      this.todos = JSON.parse(localStorage.getItem('todos')) || [];
-    },
-    methods: {
-      addItem: function () {
-        var item = {
-          title: this.newItem,
-          isDone: false
-        };
-        this.todos.push(item);
-        this.newItem = '';
-      },
-      deleteItem: function (index) {
-        if (confirm('削除してもよろしいですか?')) {
-          this.todos.splice(index, 1);
-        }
-      },
-      purge: function () {
-        if (!confirm('削除してもよろしいですか?')) {
-          return;
-        }
-        this.todos = this.remaining;
-      }
-    },
-    computed: {
-      remaining: function () {
-        // var items = this.todos.filter(function(todo) {
-        //   return !todo.isDone;
-        // });
-        // return items.length;
-        return this.todos.filter(function (todo) {
-          return !todo.isDone;
-        });
-      }
-    }
-  });
-})();
+    let size = Math.random() * 5;
+    let posX = Math.floor(Math.random() * window.innerWidth);
+    let delay = Math.random() * -20;
+    let duration = Math.random() * 5;
+    drop.style.width = 0.2 + size + "px";
+    drop.style.left = posX + "px";
+    drop.style.animationDelay = delay + "s";
+    drop.style.animationDuration = 1 + duration + "s";
+    body.appendChild(drop);
+    i++;
+  }
+}
+
+rain();
