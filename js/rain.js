@@ -4,7 +4,6 @@ function rain() {
   let i = 0;
   while (i < amount) {
     let drop = document.createElement("i");
-
     let size = Math.random() * 5;
     let posX = Math.floor(Math.random() * window.innerWidth);
     let delay = Math.random() * -20;
