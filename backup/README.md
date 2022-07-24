@@ -1,1 +1,0 @@
-# hiyasichuka.github.io
